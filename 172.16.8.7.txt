@@ -1,0 +1,399 @@
+﻿166_2960PoE_8.7#sh run
+Building configuration...
+
+Current configuration : 7268 bytes
+!
+! Last configuration change at 09:15:14 GMT Fri Jan 8 2021 by wutao
+! NVRAM config last updated at 09:15:14 GMT Fri Jan 8 2021 by wutao
+!
+version 15.2
+no service pad
+service timestamps debug datetime localtime
+service timestamps log datetime localtime
+service password-encryption
+!
+hostname 166_2960PoE_8.7
+!
+boot-start-marker
+boot-end-marker
+!
+logging buffered 40960
+!
+username athub219 privilege 15 password 7 053B071C325B411B1D46454352
+username liky privilege 15 password 7 02350C4E0113082042495B49544E43595D53
+username wutao privilege 15 password 7 03550958555D70
+no aaa new-model
+clock timezone GMT 8 0
+switch 1 provision ws-c2960x-24ps-l
+!
+!
+no ip domain-lookup
+!
+!
+!
+!
+!
+!
+!
+crypto pki trustpoint TP-self-signed-2314003840
+ enrollment selfsigned
+ subject-name cn=IOS-Self-Signed-Certificate-2314003840
+ revocation-check none
+ rsakeypair TP-self-signed-2314003840
+!
+!
+crypto pki certificate chain TP-self-signed-2314003840
+ certificate self-signed 01
+  3082022B 30820194 A0030201 02020101 300D0609 2A864886 F70D0101 05050030 
+  31312F30 2D060355 04031326 494F532D 53656C66 2D536967 6E65642D 43657274 
+  69666963 6174652D 32333134 30303338 3430301E 170D3136 30393238 31353230 
+  32375A17 0D323030 31303130 30303030 305A3031 312F302D 06035504 03132649 
+  4F532D53 656C662D 5369676E 65642D43 65727469 66696361 74652D32 33313430 
+  30333834 3030819F 300D0609 2A864886 F70D0101 01050003 818D0030 81890281 
+  8100ADEA 025BB288 ED8FB13C A7053D93 94D2B82A BA00F608 25F26B53 7AA07E88 
+  25DE78EA D097AA6A 374C849E 85C4366E C80048F2 F4AE9744 D972B559 1A3752C1 
+  209AE35C D8B03D38 458EB711 56F6D6A0 64FE519F 235092D2 BB026847 38CB8FE3 
+  0B3C2C40 CE52F136 EF0F8F0B 3718F533 11D7169B 04B9637F A70D280B A85FAAEE 
+  CD9B0203 010001A3 53305130 0F060355 1D130101 FF040530 030101FF 301F0603 
+  551D2304 18301680 143014AC E0847329 4CB04511 8B8BA1AD 1DE178BC 8D301D06 
+  03551D0E 04160414 3014ACE0 8473294C B045118B 8BA1AD1D E178BC8D 300D0609 
+  2A864886 F70D0101 05050003 81810023 C9455E30 DE550EC2 A93BF811 EBE14E55 
+  4C658FCC F4119812 F1C2457E 64644283 2BEB9CF7 7121E7B2 F6D65542 503DAC5E 
+  F87B2577 3928C279 85A62704 870FB624 8F7796F9 BD769A25 B4EF2BC2 9E9002FB 
+  F8B4227B 609F31CF E8AE59C5 330FAEF3 E8584FDB 7C9E1D7E 2BD9FD11 511684B6 
+  A756E7B2 F64545CF 9F688C16 EEB36F
+        quit
+spanning-tree mode pvst
+spanning-tree extend system-id
+!
+!
+!
+!         
+vlan internal allocation policy ascending
+!
+!
+! 
+!
+!
+!
+!
+!
+!
+!
+!
+interface Port-channel1
+ switchport access vlan 501
+ switchport mode trunk
+ switchport nonegotiate
+!
+interface FastEthernet0
+ no ip address
+ shutdown
+!
+interface GigabitEthernet1/0/1
+ switchport mode trunk
+ power inline static
+!
+interface GigabitEthernet1/0/2
+ switchport mode trunk
+ shutdown
+ power inline static
+!
+interface GigabitEthernet1/0/3
+ switchport mode trunk
+ power inline static
+!
+interface GigabitEthernet1/0/4
+ switchport mode trunk
+ power inline static
+!
+interface GigabitEthernet1/0/5
+ switchport mode trunk
+ shutdown
+ power inline static
+!
+interface GigabitEthernet1/0/6
+ switchport mode trunk
+!
+interface GigabitEthernet1/0/7
+!
+interface GigabitEthernet1/0/8
+ switchport access vlan 501
+ switchport mode access
+!
+interface GigabitEthernet1/0/9
+ switchport mode trunk
+ power inline static
+!
+interface GigabitEthernet1/0/10
+ description xingzap
+ switchport mode trunk
+ power inline static
+!
+interface GigabitEthernet1/0/11
+ description 8.11_shipin_Switch
+ switchport mode trunk
+!
+interface GigabitEthernet1/0/12
+ switchport access vlan 501
+ switchport mode access
+!
+interface GigabitEthernet1/0/13
+ switchport access vlan 501
+ switchport mode access
+!
+interface GigabitEthernet1/0/14
+ switchport access vlan 501
+ switchport mode access
+!
+interface GigabitEthernet1/0/15
+ switchport access vlan 501
+ switchport mode access
+!
+interface GigabitEthernet1/0/16
+ switchport access vlan 501
+ switchport mode access
+!
+interface GigabitEthernet1/0/17
+ switchport access vlan 501
+ switchport mode access
+!
+interface GigabitEthernet1/0/18
+ switchport access vlan 501
+ switchport mode access
+!
+interface GigabitEthernet1/0/19
+ switchport access vlan 501
+ switchport mode access
+!
+interface GigabitEthernet1/0/20
+ switchport access vlan 501
+ switchport mode access
+!
+interface GigabitEthernet1/0/21
+ switchport access vlan 501
+ switchport mode access
+!
+interface GigabitEthernet1/0/22
+ switchport access vlan 501
+ switchport mode access
+!
+interface GigabitEthernet1/0/23
+ description to-166_3750_8.10 g1/0/10
+ switchport access vlan 501
+ switchport mode trunk
+ switchport nonegotiate
+ channel-group 1 mode active
+!
+interface GigabitEthernet1/0/24
+ description to-166_3750_8.10 g1/0/9
+ switchport access vlan 501
+ switchport mode trunk
+ switchport nonegotiate
+ channel-group 1 mode active
+!
+interface GigabitEthernet1/0/25
+!
+interface GigabitEthernet1/0/26
+!
+interface GigabitEthernet1/0/27
+!
+interface GigabitEthernet1/0/28
+!
+interface Vlan1
+ no ip address
+ shutdown
+!
+interface Vlan501
+ ip address 172.16.8.7 255.255.254.0
+!
+ip default-gateway 172.16.8.1
+ip http server
+ip http secure-server
+!
+!
+logging trap debugging
+!
+snmp-server community AthubSNMP RO
+snmp-server enable traps snmp authentication linkdown linkup coldstart warmstart
+snmp-server enable traps transceiver all
+snmp-server enable traps call-home message-send-fail server-fail
+snmp-server enable traps tty
+snmp-server enable traps license
+snmp-server enable traps auth-framework sec-violation
+snmp-server enable traps cluster
+snmp-server enable traps config-copy
+snmp-server enable traps config
+snmp-server enable traps config-ctid
+snmp-server enable traps trustsec-sxp conn-srcaddr-err msg-parse-err conn-config-err binding-err conn-up conn-down binding-expn-fail oper-nodeid-change binding-conflict
+snmp-server enable traps energywise
+snmp-server enable traps fru-ctrl
+snmp-server enable traps entity
+snmp-server enable traps event-manager
+snmp-server enable traps ike policy add
+snmp-server enable traps ike policy delete
+snmp-server enable traps ike tunnel start
+snmp-server enable traps ike tunnel stop
+snmp-server enable traps ipsec cryptomap add
+snmp-server enable traps ipsec cryptomap delete
+snmp-server enable traps ipsec cryptomap attach
+snmp-server enable traps ipsec cryptomap detach
+snmp-server enable traps ipsec tunnel start
+snmp-server enable traps ipsec tunnel stop
+snmp-server enable traps ipsec too-many-sas
+snmp-server enable traps power-ethernet group 1
+snmp-server enable traps power-ethernet police
+snmp-server enable traps cpu threshold
+snmp-server enable traps vstack
+snmp-server enable traps bridge newroot topologychange
+snmp-server enable traps stpx inconsistency root-inconsistency loop-inconsistency
+snmp-server enable traps syslog
+snmp-server enable traps vtp
+snmp-server enable traps vlancreate
+snmp-server enable traps vlandelete
+snmp-server enable traps flash insertion removal
+snmp-server enable traps port-security
+snmp-server enable traps envmon fan shutdown supply temperature status
+snmp-server enable traps stackwise
+snmp-server enable traps bulkstat collection transfer
+snmp-server enable traps errdisable
+snmp-server enable traps mac-notification change move threshold
+snmp-server enable traps vlan-membership
+snmp-server host 172.16.0.119 AthubSNMP 
+!
+!
+line con 0
+line vty 0 4
+ login local
+line vty 5 15
+ login local
+!
+ntp server 172.16.0.21
+end
+
+166_2960PoE_8.7#  sh ip int brief
+Interface              IP-Address      OK? Method Status                Protocol
+Vlan1                  unassigned      YES NVRAM  administratively down down    
+Vlan501                172.16.8.7      YES NVRAM  up                    up      
+FastEthernet0          unassigned      YES NVRAM  administratively down down    
+GigabitEthernet1/0/1   unassigned      YES unset  up                    up      
+GigabitEthernet1/0/2   unassigned      YES unset  administratively down down    
+GigabitEthernet1/0/3   unassigned      YES unset  up                    up      
+GigabitEthernet1/0/4   unassigned      YES unset  up                    up      
+GigabitEthernet1/0/5   unassigned      YES unset  administratively down down    
+GigabitEthernet1/0/6   unassigned      YES unset  down                  down    
+GigabitEthernet1/0/7   unassigned      YES unset  down                  down    
+GigabitEthernet1/0/8   unassigned      YES unset  down                  down    
+GigabitEthernet1/0/9   unassigned      YES unset  up                    up      
+GigabitEthernet1/0/10  unassigned      YES unset  up                    up      
+GigabitEthernet1/0/11  unassigned      YES unset  up                    up      
+GigabitEthernet1/0/12  unassigned      YES unset  up                    up      
+GigabitEthernet1/0/13  unassigned      YES unset  up                    up      
+GigabitEthernet1/0/14  unassigned      YES unset  up                    up      
+GigabitEthernet1/0/15  unassigned      YES unset  up                    up      
+GigabitEthernet1/0/16  unassigned      YES unset  up                    up      
+GigabitEthernet1/0/17  unassigned      YES unset  up                    up      
+GigabitEthernet1/0/18  unassigned      YES unset  up                    up      
+GigabitEthernet1/0/19  unassigned      YES unset  up                    up      
+GigabitEthernet1/0/20  unassigned      YES unset  up                    up      
+GigabitEthernet1/0/21  unassigned      YES unset  up                    up      
+GigabitEthernet1/0/22  unassigned      YES unset  up                    up      
+GigabitEthernet1/0/23  unassigned      YES unset  up                    up      
+GigabitEthernet1/0/24  unassigned      YES unset  up                    up      
+GigabitEthernet1/0/25  unassigned      YES unset  down                  down    
+GigabitEthernet1/0/26  unassigned      YES unset  down                  down    
+GigabitEthernet1/0/27  unassigned      YES unset  down                  down    
+GigabitEthernet1/0/28  unassigned      YES unset  down                  down    
+Port-channel1          unassigned      YES unset  up                    up      
+166_2960PoE_8.7#  sh vlan
+
+VLAN Name                             Status    Ports
+---- -------------------------------- --------- -------------------------------
+1    default                          active    Gi1/0/2, Gi1/0/5, Gi1/0/6, Gi1/0/7, Gi1/0/25, Gi1/0/26, Gi1/0/27, Gi1/0/28
+2    VLAN0002                         active    
+3    VLAN0003                         active    
+11   VLAN0011                         active    
+100  VLAN0100                         active    
+200  VLAN0200                         active    
+201  VLAN0201                         active    
+220  VLAN0220                         active    
+300  VLAN0300                         active    
+501  VLAN0501                         active    Gi1/0/8, Gi1/0/12, Gi1/0/13, Gi1/0/14, Gi1/0/15, Gi1/0/16, Gi1/0/17, Gi1/0/18, Gi1/0/19, Gi1/0/20, Gi1/0/21, Gi1/0/22
+502  VLAN0502                         active    
+503  VLAN0503                         active    
+504  VLAN0504                         active    
+505  VLAN0505                         active    
+506  VLAN0506                         active    
+507  VLAN0507                         active    
+508  VLAN0508                         active    
+1002 fddi-default                     act/unsup 
+1003 token-ring-default               act/unsup 
+1004 fddinet-default                  act/unsup 
+1005 trnet-default                    act/unsup 
+
+VLAN Type  SAID       MTU   Parent RingNo BridgeNo Stp  BrdgMode Trans1 Trans2
+---- ----- ---------- ----- ------ ------ -------- ---- -------- ------ ------
+1    enet  100001     1500  -      -      -        -    -        0      0   
+2    enet  100002     1500  -      -      -        -    -        0      0   
+3    enet  100003     1500  -      -      -        -    -        0      0   
+11   enet  100011     1500  -      -      -        -    -        0      0   
+100  enet  100100     1500  -      -      -        -    -        0      0   
+200  enet  100200     1500  -      -      -        -    -        0      0   
+201  enet  100201     1500  -      -      -        -    -        0      0   
+220  enet  100220     1500  -      -      -        -    -        0      0   
+300  enet  100300     1500  -      -      -        -    -        0      0   
+501  enet  100501     1500  -      -      -        -    -        0      0   
+502  enet  100502     1500  -      -      -        -    -        0      0   
+503  enet  100503     1500  -      -      -        -    -        0      0   
+504  enet  100504     1500  -      -      -        -    -        0      0   
+505  enet  100505     1500  -      -      -        -    -        0      0   
+506  enet  100506     1500  -      -      -        -    -        0      0   
+507  enet  100507     1500  -      -      -        -    -        0      0   
+508  enet  100508     1500  -      -      -        -    -        0      0   
+1002 fddi  101002     1500  -      -      -        -    -        0      0   
+1003 tr    101003     1500  -      -      -        -    srb      0      0   
+1004 fdnet 101004     1500  -      -      -        ieee -        0      0   
+1005 trnet 101005     1500  -      -      -        ibm  -        0      0   
+
+Remote SPAN VLANs
+------------------------------------------------------------------------------
+
+
+Primary Secondary Type              Ports
+------- --------- ----------------- ------------------------------------------
+
+166_2960PoE_8.7# sh eth
+166_2960PoE_8.7# sh etherch
+166_2960PoE_8.7# sh etherchannel su
+166_2960PoE_8.7# sh etherchannel summary 
+Flags:  D - down        P - bundled in port-channel
+        I - stand-alone s - suspended
+        H - Hot-standby (LACP only)
+        R - Layer3      S - Layer2
+        U - in use      f - failed to allocate aggregator
+
+        M - not in use, minimum links not met
+        u - unsuitable for bundling
+        w - waiting to be aggregated
+        d - default port
+
+
+Number of channel-groups in use: 1
+Number of aggregators:           1
+
+Group  Port-channel  Protocol    Ports
+------+-------------+-----------+-----------------------------------------------
+1      Po1(SU)         LACP      Gi1/0/23(P) Gi1/0/24(P) 
+
+166_2960PoE_8.7#sh cdp nei
+Capability Codes: R - Router, T - Trans Bridge, B - Source Route Bridge
+                  S - Switch, H - Host, I - IGMP, r - Repeater, P - Phone, 
+                  D - Remote, C - CVTA, M - Two-port Mac Relay 
+
+Device ID        Local Intrfce     Holdtme    Capability  Platform  Port ID
+166_3750_8.10    Gig 1/0/24        150              S I   WS-C3750G Gig 1/0/9
+166_3750_8.10    Gig 1/0/23        150              S I   WS-C3750G Gig 1/0/10
+166_shipinhui_8.11
+                 Gig 1/0/11        142              S I   WS-C3650- Gig 1/0/24
+
+Total cdp entries displayed : 3
